@@ -51,10 +51,11 @@ import { TerrainMeshBuilder } from "./TerrainMeshBuilder.js";
  */
 
 const WIDTH = 64;
+// GitHub Pages doesn't have CORS headers, so the texture is 
+// not available via XHR.
 const TEXTURE_URL = import.meta.url.search("github") >= 0
-    ? "https://github.com/pnichols04/sc2k-map/blob/main/img/terrain_pix_dif.png?raw=true"
+    ? "https://i.postimg.cc/FsnkbpwV/terrain-pix-dif.png"
     : "./../img/terrain_pix_dif.png";
-console.log(import.meta.url);
 const RENDER_CANVAS_ID = "render-canvas";
 const ELEV_MAP_ID = "elev-map";
 const MOISTURE_MAP_ID = "moisture-map";
