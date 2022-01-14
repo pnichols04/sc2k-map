@@ -1,0 +1,101 @@
+/*  *****************************************************************
+
+    styles.css
+
+    Part of SC2K-style Terrain Renderer
+    Demo: https://pnichols04.github.io/sc2k-map/
+    Repo: https://github.com/pnichols04/sc2k-map
+
+    Copyright © 2022 Philip Nichols
+
+    Made available under the MIT License:
+
+    Permission is hereby granted, free of charge, to any person 
+    obtaining a copy of this software and associated documentation 
+    files (the “Software”), to deal in the Software without 
+    restriction, including without limitation the rights to use, 
+    copy, modify, merge, publish, distribute, sublicense, and/or 
+    sell copies of the Software, and to permit persons to whom the 
+    Software is furnished to do so, subject to the following 
+    conditions:
+
+    The above copyright notice and this permission notice shall be 
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, 
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+    OTHER DEALINGS IN THE SOFTWARE.
+
+    -----------------------------------------------------------------
+
+    Attribution, as well as notice of any use, is requested but not 
+    required.
+
+**********************************************************************  */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overscroll-behavior: none;
+    background: rgb(212,215,219);
+    background: linear-gradient(165deg, rgba(212,215,219,1) 0%, rgba(137,156,175,1) 62%);
+}
+
+canvas {
+    position: absolute;
+    top: 0px;
+}
+
+.card {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.title-logo-wrapper {
+    /* background-color: rgba(79, 93, 108, 0.62); */
+    border-radius: 20px;
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+.title-logo {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+div.title {
+    float: left;
+    color: #33364d;
+    text-align: right;
+    max-width: 576px;
+    border-right: 2px solid #33364d;
+    padding-right: 10px;
+    text-shadow: 2px 2px 4px #33364d; /* rgb(137 156 175); */
+}
+
+.logo {
+    float: right;
+}
+
+.logo-img {
+    width: 256px;
+    height: auto;
+}

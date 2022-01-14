@@ -1,0 +1,31 @@
+{
+  "name": "sc2k-map",
+  "version": "0.1.0",
+  "description": "Render SimCity 2000-style terrain with ThreeJS",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnichols04/sc2k-map.git"
+  },
+  "keywords": [
+    "ThreeJS;",
+    "terrain",
+    "generation"
+  ],
+  "author": "Philip Nichols",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pnichols04/sc2k-map/issues"
+  },
+  "homepage": "https://github.com/pnichols04/sc2k-map#readme",
+  "devDependencies": {
+    "@types/noisejs": "^0.0.28",
+    "eslint": "^8.6.0"
+  },
+  "dependencies": {
+    "three": "^0.136.0"
+  }
+}

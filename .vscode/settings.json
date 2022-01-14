@@ -1,0 +1,5 @@
+{
+    "editor.detectIndentation": false,
+    "editor.stickyTabStops": true,
+    "editor.renderWhitespace": "boundary"
+}

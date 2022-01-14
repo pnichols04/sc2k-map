@@ -1,30 +1,129 @@
+<!-- *****************************************************************
+
+    index.html
+
+    Part of SC2K-style Terrain Renderer
+    Demo: https://pnichols04.github.io/sc2k-map/
+    Repo: https://github.com/pnichols04/sc2k-map
+
+    Copyright © 2022 Philip Nichols
+
+    Made available under the MIT License:
+
+    Permission is hereby granted, free of charge, to any person 
+    obtaining a copy of this software and associated documentation 
+    files (the “Software”), to deal in the Software without 
+    restriction, including without limitation the rights to use, 
+    copy, modify, merge, publish, distribute, sublicense, and/or 
+    sell copies of the Software, and to permit persons to whom the 
+    Software is furnished to do so, subject to the following 
+    conditions:
+
+    The above copyright notice and this permission notice shall be 
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, 
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+    OTHER DEALINGS IN THE SOFTWARE.
+
+    -----------------------------------------------------------------
+
+    Attribution, as well as notice of any use, is requested but not 
+    required.
+
+********************************************************************** -->
+
 <!doctype html>
 
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>A Basic HTML5 Template</title>
-  <meta name="description" content="A simple HTML5 Template for new projects.">
-  <meta name="author" content="SitePoint">
+    <title>SC2K-style Terrain Renderer</title>
+    <meta name="description" content="Render SimCity 2000-style terrain with ThreeJS">
+    <meta name="author" content="Philip Nichols">
 
-  <meta property="og:title" content="A Basic HTML5 Template">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
-  <meta property="og:description" content="A simple HTML5 Template for new projects.">
-  <meta property="og:image" content="image.png">
+    <meta property="og:title" content="SC2K-style Terrain Renderer">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="Render SimCity 2000-style terrain with ThreeJS">
+    <meta property="og:image" content="image.png">
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css?v=1.0">
 
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.module.js",
+                "three/examples/jsm/controls/OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.136.0/examples/jsm/controls/OrbitControls.js",
+                "three/examples/jsm/utils/BufferGeometryUtils": "https://cdn.jsdelivr.net/npm/three@0.136.0/examples/jsm/utils/BufferGeometryUtils.js",
+                "@leodeslf/perlin-noise": "https://cdn.jsdelivr.net/npm/@leodeslf/perlin-noise@1.1.2/perlin.min.js"
+            }
+        }
+    </script>
+    <script type="module" src="scripts/app.js"></script>
 </head>
 
 <body>
-  <!-- your content here... -->
-  <script src="js/scripts.js"></script>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <div class="card mt-2">
+                    <img class="map-preview" id="elev-map">
+                    <div class="card-body p-1">
+                        <p class="card-text">Elevation map</p>
+                    </div>
+                </div>
+                <div class="card mt-2">
+                    <img class="map-preview" id="moisture-map">
+                    <div class="card-body p-1">
+                        <p class="card-text">Moisture map</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-logo-wrapper">
+        <div class="title-logo">
+            <div class="title">
+                <h1 class="title">
+                    SC2K-style Terrain Renderer
+                </h1>
+                <p>
+                    Created in response to a <a
+                        href="https://stackoverflow.com/questions/70642140/terrain-map-three-js/70644836#70644836">
+                        question</a> on <a href="https://stackoverflow.com/">Stack Overflow</a>.
+                </p>
+            </div>
+            <div class="logo">
+                <img class="logo-img" src="./img/logo.png">
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { App } from "./scripts/app.js";
+
+        (function () {
+            const app = new App();
+            app.run();
+        })();
+    </script>
 </body>
+
 </html>
