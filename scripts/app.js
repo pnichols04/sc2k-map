@@ -51,7 +51,10 @@ import { TerrainMeshBuilder } from "./TerrainMeshBuilder.js";
  */
 
 const WIDTH = 64;
-const TEXTURE_URL = "./../img/terrain_pix_dif.png";
+const TEXTURE_URL = import.meta.url.search("github") >= 0
+    ? "https://github.com/pnichols04/sc2k-map/blob/main/img/terrain_pix_dif.png?raw=true"
+    : "./../img/terrain_pix_dif.png";
+console.log(import.meta.url);
 const RENDER_CANVAS_ID = "render-canvas";
 const ELEV_MAP_ID = "elev-map";
 const MOISTURE_MAP_ID = "moisture-map";
@@ -93,7 +96,6 @@ export class App {
         this.initRenderer();
         this.initControls();
         this.renderer.setAnimationLoop(() => {
-            console.log("Loop");
             this.resizeRendererToCanvas(appInstance.renderer);
             this.renderer.render(appInstance.scene, appInstance.camera);
         });
@@ -156,10 +158,10 @@ export class App {
             60, // FOV
             window.innerWidth / window.innerHeight, // aspect
             0.1, // near clipping distance
-            1000 // far clipping distance
+            250 // far clipping distance
         );
-        this.camera.position.set(0, 27.71, 0);
-        this.camera.lookAt(0, 32, 0);
+        this.camera.position.set(-32, 27.71, -32);
+        // this.camera.lookAt(32, 0, 32);
         this.scene.add(this.camera);
     }
 
@@ -225,12 +227,19 @@ export class App {
     }
 
     initControls() {
-        this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    }
+        this.controls = new OrbitControls(
+            this.camera, 
+            this.renderer.domElement);
+        this.controls.listenToKeyEvents( window );
+        this.controls.enableDamping = true;
+        this.controls.dampingFactor = 0.05;
 
-    animate() {
-        this.resizeRendererToCanvas(this.renderer);
-        this.renderer.render(this.scene, this.camera);
+        this.controls.screenSpacePanning = false;
+
+        this.controls.minDistance = 8;
+        this.controls.maxDistance = 128;
+
+        this.controls.maxPolarAngle = Math.PI / 2;
     }
 
 }
